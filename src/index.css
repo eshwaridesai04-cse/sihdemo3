@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg: 248 250 252;
+    --color-surface: 255 255 255;
+    --color-text: 15 23 42;
+  }
+
+  .dark {
+    --color-bg: 11 19 16;
+    --color-surface: 18 31 26;
+    --color-text: 241 245 249;
+  }
+
+  body {
+    @apply bg-[#0B1310] text-slate-100 min-h-screen overflow-x-hidden;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Custom Sleek Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgba(11, 19, 16, 0.6);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(16, 185, 129, 0.3);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(16, 185, 129, 0.6);
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    background: rgba(18, 31, 26, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(35, 63, 53, 0.7);
+  }
+
+  .glass-card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .glass-card-hover:hover {
+    transform: translateY(-3px);
+    border-color: rgba(16, 185, 129, 0.5);
+    box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.25);
+  }
+
+  .glass-nav {
+    background: rgba(11, 19, 16, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(35, 63, 53, 0.6);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-teal-300 to-green-400;
+  }
+
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500;
+  }
+
+  .badge-verified {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30;
+  }
+
+  .badge-gov {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-300 border border-amber-500/30 tracking-wide;
+  }
+}
